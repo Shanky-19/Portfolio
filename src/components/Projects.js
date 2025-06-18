@@ -1,8 +1,14 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
+import projImg1 from "../assets/img/project-image-1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
+import kafkaCert from "../assets/img/kafka-certificate.png";
+import javaCert from "../assets/img/java-certificate.png";
+import awsCert from "../assets/img/AWS-certificate.png";
+import esCert from "../assets/img/ES-certificate.png";
+import springBootCert from "../assets/img/springboot-certificate.png";
+import appsecCert from "../assets/img/Appsec-certificate.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -11,35 +17,74 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "Business Startup",
-      description: "Design & Development",
+      title: "Tech Visionary",
+      description: "Personal Portfolio",
       imgUrl: projImg1,
+      link: "#",
+      handleClick: () => {
+        // Scroll to the top of the page when the "View Project" button is clicked
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
+      title: "Tech Visionary 2",
+      description: "Personal Portfolio",
+      imgUrl: projImg1
+    }
+    
+  ];
+
+  const certifications = [
+    {
+      title: "Core Java Certificate",
+      description: "This certification demonstrates proficiency in Core Java.",
+      imgUrl: javaCert,
+      link: "https://www.udemy.com/certificate/UC-181d0e93-0c21-46a5-8543-6ea48e5bd727/"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      title: "Spring Boot Certificate",
+      description: "This certification demonstrates expertise in Spring Boot framework.",
+      imgUrl: springBootCert,
+      link: "https://www.udemy.com/certificate/UC-20a0af29-86f6-48c6-be32-756f5b838808/"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+      title: "Apache Kafka Certificate",
+      description: "This certification showcases knowledge of Apache Kafka for messaging.",
+      imgUrl: kafkaCert,
+      link: "https://www.udemy.com/certificate/UC-4a2e87b8-9a99-4107-8c72-3f10e1a3c390/"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
+      title: "AWS Certificate",
+      description: "This certification demonstrates proficiency in AWS services.",
+      imgUrl: awsCert,
+      link: "https://www.udemy.com/certificate/UC-e10c56eb-ea6d-4f07-af20-d09d369cc130/"
     },
     {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      title: "ElasticSearch Certificate",
+      description: "This certification shows proficiency in ElasticSearch.",
+      imgUrl: esCert,
+      link: "https://www.udemy.com/certificate/UC-b2b48a47-2eec-4f0f-b597-9cf0e404138d/"
     },
+    {
+      title: "AppSec Certificate",
+      description: "This certification demonstrates knowledge in Application Security.",
+      imgUrl: appsecCert,
+      link: "https://www.udemy.com/certificate/UC-e2f75667-c3e6-43a8-9818-2eab418e9c51/"
+    }
+  ];
+
+  const achievements = [
+    {
+      title: "Achievement 1",
+      description: "Description of achievement 1",
+    },
+    {
+      title: "Achievement 2",
+      description: "Description of achievement 2",
+    }
   ];
 
   return (
@@ -49,50 +94,87 @@ export const Projects = () => {
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quam, quod neque provident velit, rem explicabo excepturi id illo molestiae blanditiis, eligendi dicta officiis asperiores delectus quasi inventore debitis quo.</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <h2>Projects</h2>
+                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
+                      <Nav.Item>
+                        <Nav.Link eventKey="first">Projects</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="second">Certifications</Nav.Link>
+                      </Nav.Item>
+                      <Nav.Item>
+                        <Nav.Link eventKey="third">Achievements</Nav.Link>
+                      </Nav.Item>
+                    </Nav>
+                    <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                      <Tab.Pane eventKey="first">
+                        <Row>
+                          {
+                            projects.map((project, index) => (
+                              <Col key={index} xs={12} sm={6} md={4} className="mb-4">
+                                <div className="project-card">
+                                  <img src={project.imgUrl} alt={project.title} className="img-fluid" />
+                                  <div className="project-info">
+                                    <h4>{project.title}</h4>
+                                    <p>{project.description}</p>
+                                    {index === 0 ? ( // For the first project, we show the "Scroll to Top" button
+                                      <a onClick={project.handleClick} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Project</a>
+                                    ) : (
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Project</a> // For other projects, we show the link
+                                    )}
+                                  </div>
+                                </div>
+                              </Col>
+                            ))
+                          }
+                        </Row>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="second">
+                        <Row>
+                          {
+                            certifications.map((cert, index) => (
+                              <Col key={index} xs={12} sm={6} md={4} className="mb-4">
+                                <div className="certification-card">
+                                  <img src={cert.imgUrl} alt={cert.title} className="img-fluid" />
+                                  <div className="certification-info">
+                                    <h4>{cert.title}</h4>
+                                    <p>{cert.description}</p>
+                                    <a href={cert.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                                      View Certificate
+                                    </a>
+                                  </div>
+                                </div>
+                              </Col>
+                            ))
+                          }
+                        </Row>
+                      </Tab.Pane>
+                      <Tab.Pane eventKey="third">
+                        <Row>
+                          {
+                            achievements.map((achievement, index) => (
+                              <Col key={index} xs={12} sm={6} md={4} className="mb-4">
+                                <div className="achievement-card">
+                                  <h4>{achievement.title}</h4>
+                                  <p>{achievement.description}</p>
+                                </div>
+                              </Col>
+                            ))
+                          }
+                        </Row>
+                      </Tab.Pane>
+                    </Tab.Content>
+                  </Tab.Container>
+                </div>
+              }
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt="background" />
     </section>
-  )
-}
+  );
+};
