@@ -1,7 +1,8 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
+import React, { useState } from "react";  // Import useState
+import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";  // Import Modal and Button
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/project-image-1.png";
-import projImg2 from "../assets/img/project-img2.png";
+import h5 from "../assets/img/5H.png";
 import projImg3 from "../assets/img/project-img3.png";
 import kafkaCert from "../assets/img/kafka-certificate.png";
 import javaCert from "../assets/img/java-certificate.png";
@@ -31,6 +32,11 @@ export const Projects = () => {
     },
     {
       title: "Tech Visionary 2",
+      description: "Personal Portfolio",
+      imgUrl: projImg1
+    },
+    {
+      title: "Tech Visionary 3",
       description: "Personal Portfolio",
       imgUrl: projImg1
     }
@@ -77,15 +83,22 @@ export const Projects = () => {
   ];
 
   const achievements = [
-    {
-      title: "Achievement 1",
-      description: "Description of achievement 1",
-    },
-    {
-      title: "Achievement 2",
-      description: "Description of achievement 2",
-    }
-  ];
+  {
+    title: "5H Award - Armorcode",
+    imgUrl: h5,
+    description: "Awarded for exhibiting qualities of Hard Working, Honesty, Humility, Humanity, and Hunger, reflecting exceptional contribution to the company."
+  },
+  {
+    title: "Technex-22 Hackathon Winner",
+     imgUrl: javaCert,
+    description: "Won the Technex-2022 Hackathon sponsored by GitHub, securing a 15k INR cash prize and exclusive GitHub swags."
+  },
+  {
+    title: "Amazon Vouchers for Jira-Slack Automation",
+     imgUrl: javaCert,
+    description: "Awarded Amazon vouchers for designing and building an automated Jira-Slack Thread messaging system, improving cross-team communication."
+  }
+];
 
   return (
     <section className="project" id="projects">
@@ -156,10 +169,14 @@ export const Projects = () => {
                         <Row>
                           {
                             achievements.map((achievement, index) => (
-                              <Col key={index} xs={12} sm={6} md={4} className="mb-4">
+                              <Col key={index} xs={12} sm={6} md={4} lg={4} className="mb-4">
                                 <div className="achievement-card">
-                                  <h4>{achievement.title}</h4>
-                                  <p>{achievement.description}</p>
+                                  <img src={achievement.imgUrl} alt={achievement.title} className="img-fluid" />
+                                  <div className="achievement-info">
+                                    <h4>{achievement.title}</h4>
+                                    <p>{achievement.description}</p>
+                                    {/* No "View Details" button */}
+                                  </div>
                                 </div>
                               </Col>
                             ))

@@ -738,3 +738,132 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project-info a:hover {
   background-color: #4A2FBD;
 }
+
+/************ Achievements Css (Fully Visible Description) ************/
+.achievement-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px; /* Keep rounded corners */
+  height: 300px; /* Fixed height for consistent card size */
+  margin-bottom: 20px; /* Spacing between cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the card */
+}
+
+.achievement-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dark background for text contrast */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  text-align: center; /* Center text */
+  overflow: hidden; /* Ensure content doesn't overflow */
+  pointer-events: none; /* Prevents interaction when hidden */
+}
+
+.achievement-card:hover .achievement-info {
+  opacity: 1;
+  pointer-events: auto; /* Allow interaction on hover */
+}
+
+.achievement-info h4 {
+  font-size: 1.2rem; /* Slightly smaller font size for uniformity */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.achievement-info p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  white-space: normal; /* Allow description text to wrap */
+  overflow: visible; /* Ensure the description is not truncated */
+}
+
+.achievement-info a {
+  display: none; /* Remove the "View Details" button completely */
+}
+
+.achievement-card:hover .achievement-info a {
+  display: none; /* Ensuring it is hidden on hover */
+}
+
+/* Ensuring proper alignment */
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Responsiveness with Media Queries */
+@media (max-width: 1200px) {
+  .achievement-card {
+    height: 280px; /* Adjust height for medium screens */
+  }
+
+  .achievement-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .achievement-info p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .achievement-card {
+    height: 250px; /* Adjust height for tablets */
+  }
+
+  .achievement-info h4 {
+    font-size: 1rem;
+  }
+
+  .achievement-info p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .achievement-card {
+    height: 230px; /* Adjust height for small tablets */
+  }
+
+  .achievement-info h4 {
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .achievement-info p {
+    font-size: 0.85rem; /* Smaller description text */
+  }
+}
+
+@media (max-width: 576px) {
+  .achievement-card {
+    height: 220px; /* Further reduce height for very small screens */
+  }
+
+  .achievement-info h4 {
+    font-size: 0.9rem;
+  }
+
+  .achievement-info p {
+    font-size: 0.8rem; /* Even smaller description text */
+  }
+}

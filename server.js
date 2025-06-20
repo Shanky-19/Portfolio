@@ -5,10 +5,18 @@ const nodemailer = require("nodemailer");
 
 // server used to send send emails
 const app = express();
-app.use(cors());
+
+// Allow CORS for a specific origin (replace with your frontend URL)
+const corsOptions = {
+  origin: '*', // This is your React app's origin
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions)); // Use the CORS middleware with the options
 app.use(express.json());
 app.use("/", router);
-app.listen(5000, () => console.log("Server Running"));
+app.listen(3001, () => console.log("Server Running"));
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
