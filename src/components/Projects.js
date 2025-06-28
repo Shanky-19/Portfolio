@@ -1,5 +1,5 @@
-import React, { useState } from "react";  // Import useState
-import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";  // Import Modal and Button
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/project1-image-1.png";
 import h5 from "../assets/img/H5.png";
@@ -17,6 +17,11 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
+  const [activeTab, setActiveTab] = useState("third"); // state to track active tab
+  const [heading, setHeading] = useState("Projects");
+  const [description, setDescription] = useState(
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  );
 
   const projects = [
     {
@@ -25,7 +30,6 @@ export const Projects = () => {
       imgUrl: projImg1,
       link: "#",
       handleClick: () => {
-        // Scroll to the top of the page when the "View Project" button is clicked
         window.scrollTo({
           top: 0,
           behavior: "smooth"
@@ -79,22 +83,43 @@ export const Projects = () => {
   ];
 
   const achievements = [
-  {
-    title: "5H Award - Armorcode",
-    imgUrl: h5,
-    description: "Awarded for exhibiting qualities of Hard Working, Honesty, Humility, Humanity, and Hunger, reflecting exceptional contribution to the company."
-  },
-  {
-    title: "Technex-22 Hackathon Winner",
-     imgUrl: hackathon,
-    description: "Won the Technex-2022 Hackathon sponsored by GitHub, securing a 15k INR cash prize and exclusive GitHub swags."
-  },
-  {
-    title: "Amazon Vouchers for Jira-Slack Automation",
-    imgUrl: jiraSlack,
-    description: "Awarded Amazon vouchers worth 10k INR for designing and building an automated Jira-Slack Thread messaging system, improving cross-team communication."
-  }
-];
+    {
+      title: "5H Award - Armorcode",
+      imgUrl: h5,
+      description: "Awarded for exhibiting qualities of Hard Working, Honesty, Humility, Humanity, and Hunger, reflecting exceptional contribution to the company."
+    },
+    {
+      title: "Technex-22 Hackathon Winner",
+      imgUrl: hackathon,
+      description: "Won the Technex-22 Hackathon sponsored by GitHub, securing a 15k INR cash prize and exclusive GitHub swags."
+    },
+    {
+      title: "Amazon Vouchers for Jira-Slack Automation",
+      imgUrl: jiraSlack,
+      description: "Awarded Amazon vouchers worth 10k INR by Armorcode for designing and building an automated Jira-Slack Thread messaging system, improving cross-team communication."
+    }
+  ];
+
+  useEffect(() => {
+    switch (activeTab) {
+      case "first":
+        setHeading("Projects");
+        setDescription("Explore some of the exciting projects I've worked on. Click to learn more.");
+        break;
+      case "second":
+        setHeading("Certifications");
+        setDescription("Check out the certifications I have earned, showcasing my expertise in various technologies.");
+        break;
+      case "third":
+        setHeading("Achievements");
+        setDescription("Here are some of the notable achievements I've earned throughout my career.");
+        break;
+      default:
+        setHeading("Projects");
+        setDescription("Explore some of the exciting projects I've worked on. Click to learn more.");
+        break;
+    }
+  }, [activeTab]);
 
   return (
     <section className="project" id="projects">
@@ -104,9 +129,14 @@ export const Projects = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Projects</h2>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
+                  <h2>{heading}</h2>
+                  <p>{description}</p>
+                  <Tab.Container
+                    id="projects-tabs"
+                    activeKey={activeTab}
+                    onSelect={(key) => setActiveTab(key)} // Update active tab on tab change
+                    defaultActiveKey="first"
+                  >
                     <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                       <Nav.Item>
                         <Nav.Link eventKey="first">Projects</Nav.Link>
@@ -129,10 +159,10 @@ export const Projects = () => {
                                   <div className="project-info">
                                     <h4>{project.title}</h4>
                                     <p>{project.description}</p>
-                                    {index === 0 ? ( // For the first project, we show the "Scroll to Top" button
+                                    {index === 0 ? (
                                       <a onClick={project.handleClick} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Project</a>
                                     ) : (
-                                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Project</a> // For other projects, we show the link
+                                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">View Project</a>
                                     )}
                                   </div>
                                 </div>
@@ -171,7 +201,6 @@ export const Projects = () => {
                                   <div className="achievement-info">
                                     <h4>{achievement.title}</h4>
                                     <p>{achievement.description}</p>
-                                    {/* No "View Details" button */}
                                   </div>
                                 </div>
                               </Col>
