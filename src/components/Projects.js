@@ -1,9 +1,11 @@
 import React, { useState } from "react";  // Import useState
 import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";  // Import Modal and Button
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-image-1.png";
-import h5 from "../assets/img/5H.png";
-import projImg3 from "../assets/img/project-img3.png";
+import projImg1 from "../assets/img/project1-image-1.png";
+import h5 from "../assets/img/H5.png";
+import hackathon from "../assets/img/hackathon.png";
+import commingSoon from "../assets/img/soon.png";
+import jiraSlack from "../assets/img/jira-slack.webp";
 import kafkaCert from "../assets/img/kafka-certificate.png";
 import javaCert from "../assets/img/java-certificate.png";
 import awsCert from "../assets/img/AWS-certificate.png";
@@ -31,16 +33,10 @@ export const Projects = () => {
       }
     },
     {
-      title: "Tech Visionary 2",
-      description: "Personal Portfolio",
-      imgUrl: projImg1
-    },
-    {
-      title: "Tech Visionary 3",
-      description: "Personal Portfolio",
-      imgUrl: projImg1
+      title: "Comming Soon...",
+      description: "Comming Soon...",
+      imgUrl: commingSoon
     }
-    
   ];
 
   const certifications = [
@@ -90,13 +86,13 @@ export const Projects = () => {
   },
   {
     title: "Technex-22 Hackathon Winner",
-     imgUrl: javaCert,
+     imgUrl: hackathon,
     description: "Won the Technex-2022 Hackathon sponsored by GitHub, securing a 15k INR cash prize and exclusive GitHub swags."
   },
   {
     title: "Amazon Vouchers for Jira-Slack Automation",
-     imgUrl: javaCert,
-    description: "Awarded Amazon vouchers for designing and building an automated Jira-Slack Thread messaging system, improving cross-team communication."
+    imgUrl: jiraSlack,
+    description: "Awarded Amazon vouchers worth 10k INR for designing and building an automated Jira-Slack Thread messaging system, improving cross-team communication."
   }
 ];
 

@@ -867,3 +867,94 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     font-size: 0.8rem; /* Even smaller description text */
   }
 }
+/* Profile Links Section */
+.profile-links-bx {
+  background-color: #121212;  /* Dark background for consistency */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-links-bx h3 {
+  font-size: 2rem;
+  color: #fff;  /* White text for headings */
+  margin-bottom: 10px;
+}
+
+.profile-links-bx p {
+  color: #B8B8B8;  /* Lighter color for the paragraph */
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-buttons a {
+  display: inline-flex;
+  align-items: center;         /* Aligns the icon vertically with the text */
+  justify-content: center;     /* Ensures the text and icon are centered horizontally */
+  margin-bottom: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);  /* Gradient background */
+  color: white;  /* White text by default */
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;  /* Remove underline */
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);  /* Light border */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Prevent text color change on hover */
+.profile-buttons a:hover {
+  background-color: #0056b3;  /* Darker shade on hover */
+  transform: scale(1.05);  /* Slight scale-up on hover */
+  color: white !important;  /* Ensure text remains white */
+}
+
+.profile-buttons a:active {
+  background-color: #00408b;  /* Darker shade on active */
+}
+
+/* Add subtle background highlight before hover */
+.profile-buttons a::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.1);  /* Subtle highlight before hover */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Lighten background on hover */
+.profile-buttons a:hover::before {
+  background: rgba(255, 255, 255, 0.2);  /* Lighter background on hover */
+}
+
+/* GitHub and LeetCode Icons (SVG or Image) */
+.profile-buttons a.github .icon {
+  /*background-image: url('path_to_github_icon.svg');*/  /* Replace with actual GitHub icon URL */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile-buttons a.leetcode .icon {
+  /*background-image: url('path_to_leetcode_icon.svg');*/  /* Replace with actual LeetCode icon URL */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Icon color change on hover */
+.profile-buttons a:hover .icon {
+  filter: brightness(0) saturate(100%) invert(100%);  /* Icon color change on hover */
+}
