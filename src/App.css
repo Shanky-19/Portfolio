@@ -1016,3 +1016,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     margin-right: 4px;  /* Further reduce space between icon and text */
   }
 }
+
+/* Add styles for the status message */
+.status-message {
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.status-message.success {
+  background-color: #4CAF50; /* Green background for success */
+  color: white;
+}
+
+.status-message.error {
+  background-color: #f44336; /* Red background for error */
+  color: white;
+}
