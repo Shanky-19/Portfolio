@@ -1,3 +1,5 @@
+
+
 /************ Custom Font ************/
 @font-face {
 	font-family: Centra;
@@ -895,7 +897,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .profile-buttons a {
   display: inline-flex;
   align-items: center;         /* Aligns the icon vertically with the text */
-  justify-content: center;     /* Ensures the text and icon are centered horizontally */
   margin-bottom: 15px;
   padding: 12px 20px;
   background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);  /* Gradient background */
@@ -941,14 +942,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /* GitHub and LeetCode Icons (SVG or Image) */
 .profile-buttons a.github .icon {
-  /*background-image: url('path_to_github_icon.svg');*/  /* Replace with actual GitHub icon URL */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .profile-buttons a.leetcode .icon {
-  /*background-image: url('path_to_leetcode_icon.svg');*/  /* Replace with actual LeetCode icon URL */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -957,4 +956,63 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /* Icon color change on hover */
 .profile-buttons a:hover .icon {
   filter: brightness(0) saturate(100%) invert(100%);  /* Icon color change on hover */
+}
+
+
+/* Style for the profile buttons */
+.profile-buttons a {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 12px 20px;  /* Adjust padding to make the button more compact */
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  color: white;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  width: auto;  /* Button width will be auto based on the content length */
+  min-width: 180px;  /* Set a minimum width to ensure buttons don't get too small */
+  max-width: 300px;  /* Optional: Set a max-width to prevent buttons from becoming too wide */
+}
+
+.profile-buttons a .icon {
+  font-size: 16px;  /* Adjusted icon size */
+  margin-right: 8px;  /* Space between icon and text */
+}
+
+.profile-buttons a:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-buttons a {
+    min-width: 150px;  /* Smaller minimum width on mobile */
+    padding: 8px 12px;  /* Adjust padding for smaller screens */
+    font-size: 0.8rem;  /* Smaller font size on mobile */
+  }
+
+  .profile-buttons a .icon {
+    font-size: 14px;  /* Smaller icon size on mobile */
+    margin-right: 6px;  /* Reduce space between icon and text */
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-buttons a {
+    min-width: 120px;  /* Even smaller width on very small screens */
+    padding: 6px 10px;  /* Further reduce padding on small screens */
+    font-size: 0.75rem;  /* Even smaller font size on very small screens */
+  }
+
+  .profile-buttons a .icon {
+    font-size: 12px;  /* Further reduce icon size on small screens */
+    margin-right: 4px;  /* Further reduce space between icon and text */
+  }
 }

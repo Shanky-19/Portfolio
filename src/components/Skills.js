@@ -10,7 +10,6 @@ import colorSharp from "../assets/img/color-sharp.png"
 export const Skills = () => {
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5
     },
@@ -35,7 +34,7 @@ export const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
                         <h2>Skills</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <p>With a passion for technology and innovation, I specialize in a variety of fields that help create scalable and efficient systems. My expertise spans backend development, data engineering, frontend design, cloud computing, and DevOps. I strive to combine technical know-how with creative problem-solving to deliver high-quality solutions.</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
                                 <img src={meter1} alt="Image" />
@@ -51,7 +50,7 @@ export const Skills = () => {
                             </div>
                             <div className="item">
                                 <img src={meter1} alt="Image" />
-                                <h5>Cloud and Devops</h5>
+                                <h5>Cloud and DevOps</h5>
                             </div>
                         </Carousel>
                     </div>

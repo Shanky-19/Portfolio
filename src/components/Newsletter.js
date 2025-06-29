@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Col, Row, Alert } from "react-bootstrap";
+import { CIcon } from '@coreui/icons-react';
+import { cibGithub, cibLeetcode } from '@coreui/icons';
 
 export const Newsletter = ({ status, message, onValidated }) => {
   const [email, setEmail] = useState('');
@@ -8,14 +10,6 @@ export const Newsletter = ({ status, message, onValidated }) => {
     if (status === 'success') clearFields();
   }, [status])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    email &&
-      email.indexOf("@") > -1 &&
-      onValidated({
-        EMAIL: email
-      })
-  }
 
   const clearFields = () => {
     setEmail('');
@@ -26,7 +20,7 @@ export const Newsletter = ({ status, message, onValidated }) => {
       <div className="newsletter-bx wow slideInUp">
         <Row>
           <Col lg={12} md={6} xl={5}>
-            <h3>Checkout my work<br></br> & Explore My Coding Journey on LeetCode and GitHub</h3>
+            <h3>Checkout my work<br /> & Explore My Coding Journey on LeetCode and GitHub</h3>
             {status === 'sending' && <Alert>Sending...</Alert>}
             {status === 'error' && <Alert variant="danger">{message}</Alert>}
             {status === 'success' && <Alert variant="success">{message}</Alert>}
@@ -40,6 +34,7 @@ export const Newsletter = ({ status, message, onValidated }) => {
                 rel="noopener noreferrer"
                 className="btn-profile"
               >
+                <CIcon icon={cibLeetcode} style={{ maxBlockSize: 20, marginRight: 10}} />
                 Visit My LeetCode Profile
               </a>
               <a
@@ -48,6 +43,7 @@ export const Newsletter = ({ status, message, onValidated }) => {
                 rel="noopener noreferrer"
                 className="btn-profile"
               >
+                <CIcon icon={cibGithub} style={{ maxBlockSize: 20, marginRight: 10}} />
                 Visit My GitHub Profile
               </a>
             </div>
@@ -55,5 +51,5 @@ export const Newsletter = ({ status, message, onValidated }) => {
         </Row>
       </div>
     </Col>
-  )
+  );
 }
